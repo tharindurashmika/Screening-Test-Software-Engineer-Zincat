@@ -1,0 +1,165 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28300\viewh14860\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 CREATE TABLE `user`(
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	`id` INT PRIMARY KEY,
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	`firstName` VARCHAR(255),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	`lastName` VARCHAR(255),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	`email` VARCHAR(255),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	`cultureID` INT,
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	`deleted` BIT,
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	`country` VARCHAR(255),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	`isRevokeAccess` BIT,
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	`created` DATETIME
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 );
+\f1\fs24 \
+\
+
+\f0\fs29\fsmilli14667 INSERT INTO user (id, firstName, lastName, email, cultureID, deleted, country, isRevokeAccess, created)
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 VALUES
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 (1, 'Victor', 'Shevchenko', 'vs@gmail.com', 1033, 1, 'US', 0, '2011-04-05'),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 (2, 'Oleksandr', 'Petrenko', 'op@gmail.com', 1034, 0, 'UA', 0, '2014-05-01'),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 (3, 'Victor', 'Tarasenko', 'vt@gmail.com', 1033, 1, 'US', 1, '2015-07-03'),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 (4, 'Sergiy', 'Ivanenko', 'sergiy@gmail.com', 1046, 0, 'UA', 1, '2010-02-02'),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 (5, 'Vitalii', 'Danilchenko', 'shumko@gmail.com', 1031, 0, 'UA', 1, '2014-05-01'),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 (6, 'Joe', 'Dou', 'joe@gmail.com', 1032, 0, 'US', 1, '2009-01-01'),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 (7, 'Marko', 'Polo', 'marko@gmail.com', 1033, 1, 'UA', 1, '2015-07-03');
+\f1\fs24 \
+\
+\
+
+\f0\fs29\fsmilli14667 CREATE TABLE `group` (
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	`id` INT PRIMARY KEY,
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	`name` VARCHAR(255),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	`created` DATETIME
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 );
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 INSERT INTO `group` (id, name, created)
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 VALUES
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 (10, 'Support', '2010-02-02'),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 (12, 'Dev team', '2010-02-03'),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 (13, 'Apps team', '2011-05-06'),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 (14, 'TEST - dev team', '2013-05-06'),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 (15, 'Guest', '2014-02-02'),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 (16, 'TEST-QA-team', '2014-02-02'),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 (17, 'TEST-team', '2011-01-07');
+\f1\fs24 \
+\
+\
+
+\f0\fs29\fsmilli14667 CREATE TABLE `groupMembership` (
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	`id` INT PRIMARY KEY,
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	`userID` INT,
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	`groupID` INT,
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	`created` DATETIME,
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	FOREIGN KEY (`userID`) REFERENCES `user`(`id`),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	FOREIGN KEY (`groupID`) REFERENCES `group`(`id`)
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 );
+\f1\fs24 \
+\
+
+\f0\fs29\fsmilli14667 INSERT INTO `groupMembership` (`id`, `userID`, `groupID`, `created`)
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 VALUES
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 (110, 2, 10, '2010-02-02'),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 (112, 3, 15, '2010-02-03'),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 (114, 1, 10, '2014-02-02'),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 (115, 1, 17, '2011-05-02'),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 (117, 4, 12, '2014-07-13'),
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 (120, 5, 15, '2014-06-15');
+\f1\fs24 \
+}

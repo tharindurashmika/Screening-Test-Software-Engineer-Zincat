@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "accfdc4a-bf37-44da-ac03-23b017d60c07",
+		"name": "Google Calendar Free Busy API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37587139"
+	},
+	"item": [
+		{
+			"name": "https://www.googleapis.com/calendar/v3/freeBusy",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "scope",
+							"value": "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.events https://www.googleapis.com/auth/calendar.events.readonly",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "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",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "1011976587017-qiier030q96ttt8ske9dnh9vkol5nj7h.apps.googleusercontent.com",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://accounts.google.com/o/oauth2/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "https://accounts.google.com/o/oauth2/auth",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "Google Auth",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "calendarId",
+						"value": "tharindumatharaarachchi@gmail.com",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"timeMin\": \"2024-08-03T01:00:00.000Z\",\n  \"timeMax\": \"2024-09-03T05:00:00.000Z\",\n  \"timeZone\": \"GMT+05:30\",\n  \"groupExpansionMax\": 1000,\n  \"calendarExpansionMax\": 1000,\n  \"items\": [\n    {\n      \"id\": \"tharindumatharaarachchi@gmail.com\"\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.googleapis.com/calendar/v3/freeBusy",
+					"protocol": "https",
+					"host": [
+						"www",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"calendar",
+						"v3",
+						"freeBusy"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
